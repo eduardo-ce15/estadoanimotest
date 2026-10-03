@@ -1,0 +1,641 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: linear-gradient(180deg, #e0f2fe 0%, #f0fdf4 100%);
+    color: #0f172a;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.screen {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: none;
+}
+
+.screen.active {
+    display: flex;
+}
+
+#welcome-screen {
+    justify-content: center;
+    align-items: center;
+    padding: clamp(12px, 3vh, 24px) clamp(12px, 4vw, 20px);
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: mobileAppear 0.4s ease-out forwards;
+}
+
+@keyframes mobileAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.logo-icon {
+    font-size: clamp(28px, 6vw, 36px);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.logo h1 {
+    font-size: clamp(18px, 5vw, 22px);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.subtitle {
+    color: #475569;
+    font-size: clamp(13px, 3.5vw, 15px);
+    font-weight: 500;
+    margin-bottom: clamp(12px, 3vh, 20px);
+}
+
+.welcome-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: clamp(18px, 5vw, 24px);
+    padding: clamp(18px, 4vh, 28px) clamp(16px, 4vw, 22px);
+    box-shadow: 
+        0 12px 32px -8px rgba(15, 23, 42, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid #ffffff;
+}
+
+.welcome-card h2 {
+    font-size: clamp(17px, 4.5vw, 20px);
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: clamp(10px, 2vh, 14px);
+    line-height: 1.3;
+}
+
+.welcome-emoji {
+    font-size: clamp(26px, 7vw, 34px);
+    margin-bottom: clamp(10px, 2vh, 16px);
+    letter-spacing: clamp(4px, 1.5vw, 8px);
+    background: #f8fafc;
+    padding: clamp(6px, 1.5vh, 10px) clamp(10px, 3vw, 14px);
+    border-radius: 16px;
+    display: inline-block;
+    border: 1px solid #e2e8f0;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.welcome-card p {
+    color: #334155;
+    font-size: clamp(13px, 3.5vw, 14.5px);
+    line-height: 1.45;
+    margin-bottom: 10px;
+}
+
+.welcome-card p:last-of-type {
+    margin-top: 6px;
+    margin-bottom: clamp(16px, 3vh, 24px);
+    font-size: clamp(12px, 1.2vh, 13px);
+    color: #ff0202;
+    font-weight: 600;
+    padding: clamp(6px, 1.2vh, 8px) 12px;
+    border-radius: 12px;
+    display: block;
+    font-weight: bold;
+}
+
+/* Botón accesible (Touch-Target) */
+.primary-btn {
+    width: 100%;
+    min-height: clamp(48px, 6vh, 54px);
+    border: none;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: clamp(15px, 4vw, 17px);
+    font-weight: 700;
+    cursor: pointer;
+    background: #059669;
+    color: #ffffff;
+    box-shadow: 0 8px 18px -4px rgba(5, 150, 105, 0.4);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.primary-btn:active {
+    transform: scale(0.98);
+    background: #047857;
+}
+
+/* Footer */
+.footer-text {
+    margin-top: clamp(12px, 2.5vh, 20px);
+    font-size: clamp(10px, 2.8vw, 11px);
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Ajustes específicos para móviles pequeños (ej. iPhone SE o pantallas de < 360px) */
+@media (max-width: 360px) {
+    .welcome-card {
+        padding: 16px 12px;
+    }
+    .welcome-emoji {
+        letter-spacing: 2px;
+    }
+}
+
+/* Ajustes para pantallas con poca altura (pantallas en horizontal o teclados abiertos) */
+@media (max-height: 600px) {
+    #welcome-screen {
+        padding: 10px;
+    }
+    .subtitle {
+        margin-bottom: 8px;
+    }
+    .welcome-card {
+        padding: 14px 16px;
+    }
+    .welcome-card p:last-of-type {
+        margin-bottom: 12px;
+    }
+}
+
+#questions-screen {
+    justify-content: center;
+    align-items: center;
+    padding: clamp(12px, 3vh, 20px) clamp(12px, 4vw, 20px);
+}
+
+.questions-container {
+    width: 100%;
+    max-width: 420px; /* Tamaño ideal enfocado en móviles */
+    margin: 0 auto;
+    animation: fadeIn 0.35s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header superior */
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(8px, 1.5vh, 12px);
+    padding: 0 2px;
+}
+
+.mini-logo {
+    font-weight: 800;
+    font-size: clamp(13px, 3.5vw, 15px);
+    color: #047857;
+    letter-spacing: -0.2px;
+}
+
+.progress-info {
+    font-size: clamp(12px, 3.2vw, 13px);
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* Barra de progreso */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: clamp(14px, 2.5vh, 22px);
+}
+
+.progress-fill {
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+    border-radius: 20px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tarjeta de Pregunta */
+.question-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: clamp(18px, 5vw, 24px);
+    padding: clamp(20px, 3.5vh, 28px) clamp(16px, 4vw, 22px);
+    box-shadow: 
+        0 12px 32px -8px rgba(15, 23, 42, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.02);
+    border: 1px solid #ffffff;
+}
+
+.question-category {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #ecfdf5;
+    color: #047857;
+    font-size: clamp(11px, 3vw, 12px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: clamp(12px, 2vh, 18px);
+}
+
+.question-card h2 {
+    font-size: clamp(17px, 4.5vw, 20px);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: clamp(18px, 3vh, 24px);
+}
+
+/* Opciones de respuesta */
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.5vh, 12px);
+}
+
+.answer-option {
+    width: 100%;
+    min-height: 52px; /* Área táctil accesible para dedos */
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    background: #ffffff;
+    text-align: left;
+    font-size: clamp(14px, 3.8vw, 15.5px);
+    font-family: inherit;
+    font-weight: 500;
+    color: #334155;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.3;
+}
+
+/* Efecto táctil al tocar una respuesta en móvil */
+.answer-option:active {
+    transform: scale(0.99);
+    background: #f8fafc;
+}
+
+/* Estado Seleccionado */
+.answer-option.selected {
+    border-color: #059669;
+    background: #ecfdf5;
+    color: #047857;
+    font-weight: 700;
+    box-shadow: 0 4px 12px -2px rgba(5, 150, 105, 0.15);
+}
+
+/* Botón Siguiente */
+.next-btn {
+    margin-top: clamp(16px, 3vh, 22px);
+    width: 100%;
+    min-height: clamp(48px, 6vh, 54px);
+    border: none;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: clamp(15px, 4vw, 17px);
+    font-weight: 700;
+    cursor: pointer;
+    background: #059669;
+    color: #ffffff;
+    box-shadow: 0 8px 18px -4px rgba(5, 150, 105, 0.4);
+    transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.2s ease;
+}
+
+.next-btn:active:not(:disabled) {
+    transform: scale(0.98);
+    background: #047857;
+}
+
+.next-btn:disabled {
+    opacity: 0.45;
+    background: #94a3b8;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Adaptación para pantallas de altura reducida */
+@media (max-height: 620px) {
+    .question-card h2 {
+        margin-bottom: 12px;
+    }
+    .question-category {
+        margin-bottom: 10px;
+    }
+    .answers-container {
+        gap: 6px;
+    }
+    .answer-option {
+        min-height: 44px;
+        padding: 8px 12px;
+    }
+}
+
+
+
+#results-screen {
+    justify-content: center;
+    align-items: center;
+    padding: clamp(12px, 3vh, 20px) clamp(12px, 4vw, 20px);
+    transition: background-color 0.4s ease; /* Transición suave al cargar tema */
+}
+
+.results-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header superior transparente */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(10px, 2vh, 16px);
+    padding: 0 4px;
+    background: transparent;
+}
+
+.results-header .mini-logo {
+    font-weight: 800;
+    font-size: clamp(14px, 3.8vw, 16px);
+    color: #0f172a;
+}
+
+.results-header p {
+    color: #475569;
+    font-size: clamp(12px, 3.2vw, 13px);
+    font-weight: 600;
+}
+
+/* Tarjeta sin bordes marcados para integrarse totalmente */
+.result-card {
+    position: relative;
+    overflow: hidden;
+    background: transparent; /* Ahora el fondo lo da la pantalla completa */
+    border-radius: clamp(22px, 6vw, 28px);
+    padding: clamp(16px, 2.5vh, 24px) clamp(14px, 3.5vw, 20px);
+    text-align: center;
+}
+
+.character-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(10px, 2vh, 14px);
+}
+
+.character-img {
+    width: clamp(140px, 38vw, 180px);
+    height: clamp(140px, 38vw, 180px);
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.06));
+}
+
+.result-character {
+    font-size: clamp(24px, 6.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #0f172a;
+    letter-spacing: -0.3px;
+}
+
+.result-profile {
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: clamp(12px, 3.2vw, 13.5px);
+    font-weight: 700;
+    margin-bottom: clamp(14px, 2vh, 18px);
+}
+
+.result-description {
+    max-width: 360px;
+    margin: 0 auto clamp(16px, 2.5vh, 22px);
+    color: #ff0000;
+    font-size: clamp(13.5px, 3.6vw, 15px);
+    line-height: 1.5;
+    font-weight: 500;
+    font-weight: bold;
+}
+
+/* Frase destacada estilo pill */
+.character-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 18px;
+    padding: clamp(14px, 2vh, 18px) 16px;
+    margin: 0 0 clamp(20px, 3vh, 26px);
+}
+
+.character-message p {
+    margin: 0;
+    color: #1e293b;
+    font-size: clamp(13.5px, 3.6vw, 15px);
+    font-weight: 600;
+    line-height: 1.45;
+    font-style: italic;
+}
+
+.message-decoration {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* Títulos e instrucciones del video */
+.video-section {
+    margin-bottom: clamp(18px, 2.5vh, 24px);
+}
+
+.video-title {
+    margin-bottom: 6px;
+    font-size: clamp(14px, 3.8vw, 16px);
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.video-title span {
+    color: #059669; /* Mantiene la paleta verde de tu diseño */
+}
+
+.video-description {
+    font-size: clamp(11.5px, 3vw, 12.5px);
+    color: #64748b;
+    margin-bottom: 14px;
+    line-height: 1.4;
+}
+
+/* Contenedor adaptativo de Video (Responsive Aspect Ratio) */
+.video-container {
+    width: 100%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* El video se ajusta al contenedor manteniendo la proporción */
+.video-container video {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Limita la altura en pantallas grandes */
+    display: block;
+    object-fit: contain;
+}
+
+.primary-btn {
+    width: 100%;
+    min-height: clamp(48px, 6vh, 54px);
+    border: none;
+    border-radius: 16px;
+    padding: 12px 16px;
+    font-size: clamp(14.5px, 4vw, 16px);
+    font-weight: 700;
+    cursor: pointer;
+    background: #059669;
+    color: #ffffff;
+    box-shadow: 0 8px 18px -4px rgba(5, 150, 105, 0.35);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.primary-btn:active {
+    transform: scale(0.98);
+    background: #047857;
+}
+
+/* ============================================
+   PALETAS Y FONDOS DE PANTALLA COMPLETA
+   ============================================ */
+
+/* 1. Zorrito Solar (Ánimo Positivo) */
+.theme-positive#results-screen {
+    background: #fffdf0;
+}
+.theme-positive .result-profile {
+    background: #fde68a;
+    color: #78350f;
+}
+.theme-positive .character-message {
+    background: #fef3c7;
+    color: red;
+    font-weight: bold;
+}
+.theme-positive .message-decoration {
+    color: #d97706;
+}
+
+/* 2. Gatito Zen / Osito Calmado (Calma) */
+.theme-calm#results-screen {
+    background: #ecfdf5; /* Verde pastel unificado en toda la pantalla */
+}
+.theme-calm .result-profile {
+    background: #a7f3d0;
+    color: #064e3b;
+}
+.theme-calm .character-message {
+    background: #d1fae5;
+}
+.theme-calm .message-decoration {
+    color: #059669;
+}
+
+/* 3. Hámster Inquieto (Tensión) */
+.theme-tension#results-screen {
+    background: #fff7ed;
+}
+.theme-tension .result-profile {
+    background: #fed7aa;
+    color: #7c2d12;
+}
+.theme-tension .character-message {
+    background: #ffedd5;
+}
+.theme-tension .message-decoration {
+    color: #ea580c;
+}
+
+/* 4. Panda Reflexivo (Ánimo Bajo) */
+.theme-low#results-screen {
+    background: #eff6ff;
+}
+.theme-low .result-profile {
+    background: #bfdbfe;
+    color: #1e3a8a;
+}
+.theme-low .character-message {
+    background: #dbeafe;
+    color: red;
+}
+.theme-low .message-decoration {
+    color: #2563eb;
+}
+
+@media (max-width: 360px) {
+    .result-details {
+        grid-template-columns: 1fr;
+    }
+}
+
+.video{
+    max-width: 350px;
+    max-height: 100%;
+}
