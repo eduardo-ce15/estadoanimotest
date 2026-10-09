@@ -34,7 +34,7 @@ const moodProfiles = {
         theme: "positive",
         
         video:
-            "../Assets/videos/emocion.mp4"
+            "../Assets/videos/alegria.mp4"
 
     },
 
@@ -66,7 +66,7 @@ const moodProfiles = {
             "La calma tambien es una forma de avanzar.",
         
         video:
-            "../Assets/videos/emocion.mp4"
+            "../Assets/videos/alegria.mp4"
     },
 
 
@@ -97,7 +97,7 @@ const moodProfiles = {
             "Respira, todo puede esperar un momento.",
         
         video:
-            "../Assets/videos/emocion.mp4"
+            "../Assets/videos/ansiedad.mp4"
     },
 
 
@@ -129,7 +129,7 @@ const moodProfiles = {
             "Esta bien no estar bien. Tambien es parte del camino.",
         
         video:
-            "../Assets/videos/emocion.mp4"
+            "../Assets/videos/triste.mp4"
 
     }
 
